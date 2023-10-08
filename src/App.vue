@@ -1,6 +1,7 @@
 <script lang="ts" setup>
-import ChannelsList from "./components/ChannelsList.vue";
-import MessageList from "./components/MessageList.vue";
+import ChannelsList from "./components/ChannelsList.vue"
+import MessageList from "./components/MessageList.vue"
+import SendingMessage from "./components/SendingMessage.vue"
 </script>
 
 <template>
@@ -10,6 +11,7 @@ import MessageList from "./components/MessageList.vue";
     </div>
     <div class="messageContainer">
       <MessageList />
+      <SendingMessage />
     </div>
   </div>
 </template>

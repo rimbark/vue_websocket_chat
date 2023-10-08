@@ -1,17 +1,24 @@
 <script lang="ts" setup="">
+import {useChannelsService} from "../modules/channelsService.ts"
 
+const {channels} = useChannelsService()
+const setActive = (id: number) => {
+  channels.forEach(ch => {
+    ch.id === id ? ch.checked = true : ch.checked = false
+  })
+}
 </script>
 
 <template>
   <div class="container">
-    <div class="container_item">
-      channel 1
-    </div>
-    <div class="container_item">
-      channel 2
-    </div>
-    <div class="container_item">
-      channel 3
+    <div
+      v-for="channel in channels"
+      :key="channel.id"
+      class="container_item"
+      :class="{active: channel.checked}"
+      @click="setActive(channel.id)"
+    >
+      {{ channel.title }}
     </div>
   </div>
 </template>
@@ -38,10 +45,17 @@
   padding: 5px;
 
   cursor: pointer;
+
 }
 
-.container_item:hover {
+.container_item:not(.active):hover {
+  background-color: rgba(84, 127, 165, 0.18);
+  color: white;
+}
+
+.active {
   background-color: #547fa5;
+  color: white;
 }
 
 li {

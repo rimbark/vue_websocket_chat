@@ -48,7 +48,8 @@ module.exports = {
         'ignoreCase': true,
         'ignoreMemberSort': false,
         'memberSyntaxSortOrder': ['all', 'single', 'multiple', 'none']
-      }]
+      }],
+    'semi': ["error", "never"]
   }
 
 }
