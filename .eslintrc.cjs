@@ -49,7 +49,11 @@ module.exports = {
         'ignoreMemberSort': false,
         'memberSyntaxSortOrder': ['all', 'single', 'multiple', 'none']
       }],
-    'semi': ["error", "never"]
+    'semi': ['error', 'never'],
+    'object-curly-spacing': ['error', 'always'],
+    'func-call-spacing': ['error', 'always'],
+    "vue/mustache-interpolation-spacing": ["error", "always"],
+    "vue/html-closing-bracket-spacing": ["error"]
   }
 
 }

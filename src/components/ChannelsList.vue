@@ -1,9 +1,9 @@
 <script lang="ts" setup="">
-import {useChannelsService} from "../modules/channelsService.ts"
+import { useChannelsService } from "../modules/channelsService.ts"
 
-const {channels} = useChannelsService()
+const { channels } = useChannelsService ()
 const setActive = (id: number) => {
-  channels.forEach(ch => {
+  channels.forEach (ch => {
     ch.id === id ? ch.checked = true : ch.checked = false
   })
 }

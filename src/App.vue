@@ -43,6 +43,7 @@ import SendingMessage from "./components/SendingMessage.vue"
 .messageContainer {
   @include displayColumn;
   @include alignEnd;
+  gap: 15px;
   flex-grow: 1;
 
   padding: 5px;
