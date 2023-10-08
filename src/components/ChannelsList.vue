@@ -1,12 +1,10 @@
 <script lang="ts" setup="">
+import { ref } from "vue"
 import { useChannelsService } from "../modules/channelsService.ts"
 
 const { channels } = useChannelsService ()
-const setActive = (id: number) => {
-  channels.forEach (ch => {
-    ch.id === id ? ch.checked = true : ch.checked = false
-  })
-}
+
+const activeChannel = ref (channels[0].id)
 </script>
 
 <template>
@@ -15,8 +13,8 @@ const setActive = (id: number) => {
       v-for="channel in channels"
       :key="channel.id"
       class="container_item"
-      :class="{active: channel.checked}"
-      @click="setActive(channel.id)"
+      :class="{active: channel.id === activeChannel}"
+      @click="activeChannel = channel.id"
     >
       {{ channel.title }}
     </div>
