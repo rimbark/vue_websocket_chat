@@ -1,7 +1,9 @@
 <script lang="ts" setup>
-import { useMessageService } from "../modules/messageService.ts"
 
-const { messages } = useMessageService ()
+import { toRefs } from "vue"
+import { useChatService } from "../stores/messageService.ts"
+
+const { messages } = toRefs(useChatService())
 </script>
 
 <template>

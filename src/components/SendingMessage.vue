@@ -1,11 +1,11 @@
 <script lang="ts" setup="">
 import { ref } from "vue"
-import { useMessageService } from "../modules/messageService.ts"
+import { useChatService } from "../stores/messageService.ts"
 
-const { addMessage } = useMessageService ()
-const text = ref ('')
+const { addMessage } = useChatService()
+const text = ref('')
 const senMessage = () => {
-  addMessage (text.value)
+  addMessage(text.value)
   text.value = ''
 }
 </script>

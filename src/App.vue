@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import ChannelsList from "./components/ChannelsList.vue"
-import MessageList from "./components/MessageList.vue"
+import LoginButton from "./components/LoginButton.vue"
 import SendingMessage from "./components/SendingMessage.vue"
 </script>
 
@@ -8,9 +8,10 @@ import SendingMessage from "./components/SendingMessage.vue"
   <div class="main-container">
     <div class="channelContainer">
       <ChannelsList />
+      <LoginButton />
     </div>
     <div class="messageContainer">
-      <MessageList />
+      <router-view />
       <SendingMessage />
     </div>
   </div>
@@ -33,6 +34,9 @@ import SendingMessage from "./components/SendingMessage.vue"
 
 .channelContainer {
   @include displayColumn;
+  justify-content: flex-end;
+
+  padding: 5px;
 
   align-items: flex-start;
   width: 30%;

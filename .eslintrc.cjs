@@ -38,22 +38,21 @@ module.exports = {
     'sort-imports': [
       'error', {
         'ignoreCase': true,
-        'ignoreDeclarationSort': false,
+        'ignoreDeclarationSort': true,
         'ignoreMemberSort': false,
-        'memberSyntaxSortOrder': ['all', 'single', 'multiple', 'none'],
+        'memberSyntaxSortOrder': ['all', 'multiple', 'single', 'none'],
         'allowSeparatedGroups': false
       }],
     'sort-imports-es6-autofix/sort-imports-es6': [
       2, {
         'ignoreCase': true,
-        'ignoreMemberSort': false,
-        'memberSyntaxSortOrder': ['all', 'single', 'multiple', 'none']
+        'ignoreMemberSort': true,
+        'memberSyntaxSortOrder': ['all', 'multiple', 'single', 'none']
       }],
     'semi': ['error', 'never'],
     'object-curly-spacing': ['error', 'always'],
-    'func-call-spacing': ['error', 'always'],
-    "vue/mustache-interpolation-spacing": ["error", "always"],
-    "vue/html-closing-bracket-spacing": ["error"]
+    'vue/mustache-interpolation-spacing': ['error', 'always'],
+    'vue/html-closing-bracket-spacing': ['error']
   }
 
 }

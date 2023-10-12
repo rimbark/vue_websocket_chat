@@ -1,32 +1,46 @@
 <script lang="ts" setup="">
 import { ref } from "vue"
-import { useChannelsService } from "../modules/channelsService.ts"
+import { useAuth } from "../stores/auth.ts"
+import { useChatService } from "../stores/messageService.ts"
 
-const { channels } = useChannelsService ()
+const { channels } = useChatService()
+const auth = useAuth()
 
-const activeChannel = ref (channels[0].id)
+const activeChannel = ref(channels[0].id)
 </script>
 
 <template>
-  <div class="container">
-    <div
+  <div
+    v-if="auth.isAuth"
+    class="container"
+  >
+    <template
       v-for="channel in channels"
       :key="channel.id"
-      class="container_item"
-      :class="{active: channel.id === activeChannel}"
-      @click="activeChannel = channel.id"
     >
-      {{ channel.title }}
-    </div>
+      <RouterLink :to="{ name: 'chat', params: { id: channel.id}}">
+        <div
+          class="container_item"
+          @click="activeChannel = channel.id"
+        >
+          {{ channel.title }}
+        </div>
+      </RouterLink>
+    </template>
   </div>
 </template>
 
 <style lang="scss" scoped>
 @import "src/style";
 
+.router-link-exact-active {
+  background-color: #547fa5;
+  color: white;
+}
+
 .container {
   @include displayColumn;
-
+  flex-grow: 1;
   width: 100%;
 
   padding: 5px;
@@ -48,11 +62,6 @@ const activeChannel = ref (channels[0].id)
 
 .container_item:not(.active):hover {
   background-color: rgba(84, 127, 165, 0.18);
-  color: white;
-}
-
-.active {
-  background-color: #547fa5;
   color: white;
 }
 
